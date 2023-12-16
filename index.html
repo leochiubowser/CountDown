@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<!-- Bowser is here -->
+<head>
+    <title>畢旅倒數計時</title>
+    <style>
+        .countdown {
+            text-align: center;
+            font-size: 48px;
+            font-weight: bold;
+            color: #333;
+            font-family: Arial, sans-serif;
+            /* Updated font family */
+            position: absolute;
+            top: 45%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            white-space: nowrap;
+        }
+
+        .countdown-info {
+            text-align: center;
+            font-size: 24px;
+            color: #666;
+            font-family: Arial, sans-serif;
+            /* Updated font family */
+            position: absolute;
+            top: 53%;
+            left: 50%;
+            white-space: nowrap;
+            transform: translate(-50%, -50%);
+        }
+
+        /* Mobile CSS */
+        @media only screen and (max-width: 600px) {
+            .countdown {
+                font-size: 40px;
+            }
+            .countdown-info {
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="countdown" id="countdown"></div>
+    <div class="countdown-info">倒數: 2023/12/18 7:30AM</div>
+
+    <script>
+        // Update the clock every
+        var countDownDate = new Date("December 18, 2023 07:30:00").getTime();
+
+        // Update the countdown every second
+        var countdownTimer = setInterval(function () {
+            // Get the current date and time
+            var now = new Date().getTime();
+
+            // Calculate the distance between now and the countdown date
+            var distance = countDownDate - now;
+            // Calculate days, hours, minutes, and seconds
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            // Display the countdown in the element with id="countdown"
+            document.getElementById("countdown").innerHTML = days + "天 " + hours + "小時 " + minutes + "分鐘 " + seconds + "秒";
+
+            // If the countdown is finished, display a message
+            if (distance < 0) {
+                clearInterval(countdownTimer);
+                document.getElementById("countdown").innerHTML = "出發啦！";
+            }
+        }, 1000);
+    </script>
+</body>
+
+</html>
