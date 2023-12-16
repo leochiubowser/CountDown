@@ -1,41 +1,45 @@
 <!DOCTYPE html>
 <html>
-<!-- Bowser is here -->
+
 <head>
     <title>畢旅倒數計時</title>
     <style>
+        .containder {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
         .countdown {
             text-align: center;
-            font-size: 5vw;
+            font-size: 90px;
             font-weight: bold;
             color: #333;
             font-family: Arial, sans-serif;
             /* Updated font family */
-            position: absolute;
-            top: 45%;
-            left: 50%;
-            transform: translate(-50%, -50%);
             white-space: nowrap;
         }
 
         .countdown-info {
             text-align: center;
-            font-size: 2vw;
+            font-size: 50px;
             color: #666;
             font-family: Arial, sans-serif;
             /* Updated font family */
-            position: absolute;
-            top: 53%;
+            position: relative;
+            top: 20px;
             left: 50%;
             white-space: nowrap;
             transform: translate(-50%, -50%);
         }
 
         /* Mobile CSS */
-        /* @media only screen and (max-width: 600px) {
+        /* @media only screen and (max-width: 960px) {
             .countdown {
                 font-size: 40px;
             }
+
             .countdown-info {
                 font-size: 20px;
             }
@@ -44,8 +48,10 @@
 </head>
 
 <body>
-    <div class="countdown" id="countdown"></div>
-    <div class="countdown-info">倒數: 2023/12/18 7:30AM</div>
+    <div class="containder">
+        <div class="countdown" id="countdown"></div>
+        <div class="countdown-info">倒數: 2023/12/18 7:30AM</div>
+    </div>
 
     <script>
         // Update the clock every
